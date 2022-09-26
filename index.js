@@ -11,6 +11,8 @@ document.querySelectorAll('.charKey').forEach(charKeyBtn => charKeyBtn.addEventL
 }))
 
 document.getElementById('clear').addEventListener('click', ()=>{
+    resultInput.value = ''
+    resultInput.classList.remove("error");
     input.value = ''
     input.focus()
 })
@@ -32,8 +34,11 @@ input.addEventListener('keydown', e => {
 document.getElementById('equal').addEventListener('click', calculate)
 
 function calculate() {
+    resultInput.value = 'ERROR'
+    resultInput.classList.add('error')
     const result = eval(input.value)
     resultInput.value = result
+    resultInput.classList.remove('error')
 }
 
 document.getElementById('copyToClipboard').addEventListener('click', (e) => {
