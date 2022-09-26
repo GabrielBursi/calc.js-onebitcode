@@ -29,6 +29,9 @@ input.addEventListener('keydown', e => {
     }
 })
 
+document.getElementById('equal').addEventListener('click', calculate)
+
 function calculate() {
-    console.log('ola')
+    const result = eval(input.value)
+    resultInput.value = result
 }
