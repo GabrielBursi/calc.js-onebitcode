@@ -5,6 +5,16 @@ const resultInput = document.getElementById('result');
 
 const allowedKeys = ["(", ")", "/", "*", "-", "+", "9", "8", "7", "6", "5", "4", "3", "2", "1", "0", ".", "%", " "]
 
+document.querySelectorAll('.charKey').forEach(charKeyBtn => charKeyBtn.addEventListener('click', ()=>{
+    const value = charKeyBtn.dataset.value
+    input.value += value
+}))
+
+document.getElementById('clear').addEventListener('click', ()=>{
+    input.value = ''
+    input.focus()
+})
+
 input.addEventListener('keydown', e => {
     e.preventDefault();
     if (allowedKeys.includes(e.key)){
