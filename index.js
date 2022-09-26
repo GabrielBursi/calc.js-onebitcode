@@ -36,6 +36,18 @@ function calculate() {
     resultInput.value = result
 }
 
+document.getElementById('copyToClipboard').addEventListener('click', (e) => {
+    const btn = e.currentTarget
+    if(btn.innerText==="Copy"){
+        btn.innerText = "Copied!"
+        btn.classList.add("success")
+        navigator.clipboard.writeText(resultInput.value)
+    }else{
+        btn.innerText = 'Copy'
+        btn.classList.remove("success")
+    }
+})
+
 document.getElementById('themeSwitcher').addEventListener('click', ()=>{
     if (main.dataset.theme === "dark") {
         root.style.setProperty("--bg-color", "#f1f5f9");
